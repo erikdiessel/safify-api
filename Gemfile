@@ -5,4 +5,6 @@ gem 'thin'
 
 gem 'grape'
 
-gem "mongoid", ">=3.1"
+gem 'mongoid', '>=3.1'
+
+gem 'newrelic-grape'
