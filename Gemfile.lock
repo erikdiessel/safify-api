@@ -58,4 +58,5 @@ DEPENDENCIES
   grape
   mongoid (>= 3.1)
   newrelic-grape
+  newrelic_rpm
   thin
