@@ -57,6 +57,7 @@ class API < Grape::API
          user = get_user!(params[:username])
          user.update_attributes :password_list => params[:password_list]
          'Successfully updated'
+         params[:password_list]
       end
       
    end
