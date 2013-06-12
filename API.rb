@@ -71,8 +71,7 @@ class API < Grape::API
       begin
          User.create!(
             :username => params[:username],
-            :password => params[:password],
-            :password_list => '{}'
+            :password => params[:password]
          )
       rescue
          error! 'Username already used', 409
