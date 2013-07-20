@@ -85,4 +85,17 @@ class API < Grape::API
       }
    end
    
+   params do
+      requires :username, :type => String   
+   end
+   
+   get 'username_not_used' do
+      user = User.where(:username => params[:username]).first
+      if user
+         error! 'Username already used', 409
+      else
+         'Username is free'
+      end
+   end
+   
 end
