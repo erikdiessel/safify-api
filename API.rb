@@ -6,7 +6,7 @@ module Authentification
 
    def authentificate!
       if not password_correct?(params[:username], params[:password])
-         error! 'Authentification failed', 403
+         error! 'Authentification failed', 401
       end
    end
   
@@ -20,7 +20,7 @@ module Authentification
       if user
          user
       else
-         error! 'User not found', 404
+         error! 'User not found', 403
       end
    end
   
@@ -33,6 +33,7 @@ class API < Grape::API
    before do
       header "Access-Control-Allow-Origin", "*"
    end
+   
    
    params do
       requires :username, :type => String
@@ -79,11 +80,13 @@ class API < Grape::API
       'Successfully registered'
    end
    
+   
    get 'status' do
       {
          :registered_users => User.count
       }
    end
+   
    
    params do
       requires :username, :type => String   
