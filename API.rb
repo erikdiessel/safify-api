@@ -109,6 +109,7 @@ class API < Grape::API
    end
    
    post 'change_password' do
+      authentificate!
       user = User.where(:username => params[:username]).first
       user.update_attributes :password => params[:new_password]
       'Password successfully changed'
