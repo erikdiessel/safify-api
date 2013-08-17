@@ -101,4 +101,17 @@ class API < Grape::API
       end
    end
    
+   
+   params do
+      requires :username, :type => String
+      requires :password, :type => String
+      requires :new_password, :type => String
+   end
+   
+   post 'change_password' do
+      user = User.where(:username => params[:username]).first
+      user.update_attributes :password => params[:new_password]
+      'Password successfully changed'
+   end
+   
 end
