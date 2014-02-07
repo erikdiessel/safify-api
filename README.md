@@ -1,4 +1,4 @@
-fortressofkeys-api
+Safify-API
 ==================
 
-The API for the password manager Fortress of Keys.
+The API for the password manager Safify.
