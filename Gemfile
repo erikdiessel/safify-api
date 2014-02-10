@@ -7,5 +7,5 @@ gem 'grape'
 
 gem 'mongoid', '>=3.1'
 
-gem 'newrelic_rpm'
-gem 'newrelic-grape'
+#gem 'newrelic_rpm'
+#gem 'newrelic-grape'
