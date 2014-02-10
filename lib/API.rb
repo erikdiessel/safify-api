@@ -1,6 +1,6 @@
 require 'grape'
-require './User'
-require './grape-tweaks'
+require_relative 'User'
+require_relative 'grape-tweaks'
 
 module Authentification
 
