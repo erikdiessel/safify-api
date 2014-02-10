@@ -1,5 +1,5 @@
 require 'spec_helper'
-require '../lib/API'
+require_relative '../lib/API'
 
 describe API do
     include Rack::Test::Methods
