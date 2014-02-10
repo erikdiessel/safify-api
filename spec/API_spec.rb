@@ -13,7 +13,7 @@ describe API do
         it "Returns the number of registered users as a hash" do
             get "/status"
             expect(last_response.status).to eq(200)
-            expect(last_response.body).to match(/{:registered_users}=>([0-9]+}/)
+            expect(last_response.body).to match(/{:registered_users}=>([0-9])+}/)
         end
     end
 end
