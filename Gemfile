@@ -11,5 +11,7 @@ gem 'rake'
 
 gem 'rspec'
 
+gem 'rack-test', require: 'rack/test'
+
 #gem 'newrelic_rpm'
 #gem 'newrelic-grape'
