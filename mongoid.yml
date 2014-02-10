@@ -1,4 +1,11 @@
 production:
-  sessions:
-    default:
-      uri: <%= ENV['MONGODB_URI'] %>
+    sessions:
+        default:    
+            uri: <%= ENV['MONGODB_URI'] %>
+     
+test:
+    sessions:
+        default:
+            database: safify
+            host:
+            - localhost:27017
