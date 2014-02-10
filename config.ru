@@ -1,4 +1,4 @@
-require './API'
+require 'lib/API'
 require 'mongoid'
 Mongoid.load!("./mongoid.yml")
 
