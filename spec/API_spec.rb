@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rack/test'
 require_relative '../lib/API'
 
 describe API do
