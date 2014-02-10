@@ -1,5 +1,5 @@
-task :default => [:test]
+require 'rspec/core/rake_task'
 
-task :test do
-  rspec "spec/API_spec.rb"
-end
+RSpec::Core::RakeTask.new(:spec)
+
+task :default => :spec
