@@ -1,8 +1,5 @@
-require 'lib/API'
+require File.expand_path("../lib/API", __FILE__)
 require 'mongoid'
-Mongoid.load!("./mongoid.yml")
-
-#require './newrelic'
-#NewRelic::Agent.manual_start
+#Mongoid.load!("./mongoid.yml")
 
 run API

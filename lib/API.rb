@@ -2,6 +2,8 @@ require 'grape'
 require_relative 'User'
 require_relative 'grape-tweaks'
 
+Mongoid.load!(File.expand_path("./mongoid.yml"))
+
 module Authentification
 
    def authentificate!
