@@ -32,13 +32,13 @@ describe API do
         it "Requires a  Username as parameter" do
             get "/passwords" # missing username=blabla
             expect(last_response.status).to eq(400)
-            expect(last_response.body).to eq("missing parameter: username")
+            expect(last_response.body).to eq("username is missing, password is missing")
         end
         
         it "Requires a Password as parameter" do
             get "/passwords?username=some_user"
             last_response.status.should eq 400
-            last_response.body.should eq "missing parameter: password"
+            last_response.body.should eq "password is missing"
         end
         
         it "Returns 403 Error for non-existing Users" do
