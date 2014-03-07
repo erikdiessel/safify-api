@@ -10,19 +10,32 @@ describe API do
     end
     
     def nothing_changed
-        User.count.should be 1
+        User.count.should be 2
+
+        # verify user1
         user = User.where(:username=>"user1").first
-        user.password.should eq "pa$$word37"
+        user.password.should      eq "pa$$word37"
         user.password_list.should eq "My password list"
+
+	# verify another user
+	another_user = User.where(:username=>"another_user").first
+        another_user.password.should      eq "abcde12345"
+        another_user.password_list.should eq "Super secret passwords: Blabla"
     end
     
     before :each do
         User.delete_all
         # Test fixtures:
         User.create!(
-            :username => "user1",
-            :password => "pa$$word37",
+            :username      => "user1",
+            :password      => "pa$$word37",
             :password_list => "My password list"
+        )
+
+	User.create!(
+            :username      => "another_user",
+            :password      => "abcde12345",
+            :password_list => "Super secret passwords: Blabla"
         )
     end
     
@@ -31,7 +44,7 @@ describe API do
         it "Returns the number of registered users as a hash" do
             get "/status"
             expect(last_response.status).to eq(200)
-            expect(last_response.body).to eq("{:registered_users=>1}")
+            expect(last_response.body).to eq("{:registered_users=>2}")
         end
     end
     
@@ -163,7 +176,7 @@ describe API do
             user = User.where(:username=>"user2").first
             user.password.should eq "abcd"
             user.password_list.should eq nil
-            User.count.should eq 2
+            User.count.should eq 3
         end
         
         it "Returns an error when username does already exist" do
