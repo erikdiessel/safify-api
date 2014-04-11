@@ -1,7 +1,7 @@
-#production:
-#  sessions:
-#    default:    
-#      uri: <%= ENV['MONGODB_URI'] %>
+production:
+  sessions:
+    default:    
+      uri: <%= ENV['MONGODB_URI'] %>
      
 test:
   sessions:
