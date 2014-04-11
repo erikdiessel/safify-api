@@ -4,6 +4,7 @@ require_relative 'grape-tweaks'
 
 Mongoid.load!(File.expand_path("./mongoid.yml"))
 
+
 module Authentification
 
    def authentificate!
@@ -31,11 +32,10 @@ end
 class API < Grape::API
    format :txt
    helpers Authentification
-   
+    
    before do
       header "Access-Control-Allow-Origin", "*"
    end
-   
    
    params do
       requires :username, :type => String
