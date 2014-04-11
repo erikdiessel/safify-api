@@ -1,5 +1,12 @@
 language: ruby
 rvm:
-    - 2.0.0
+- 2.0.0
 services:
-    - mongodb
+- mongodb
+deploy:
+  provider: heroku
+  app:
+      master: safify-api
+      development: safify-api-integration
+  api_key:
+    secure: Kr6YW23QT61vjnuGrDWKWWKTcFbTxx2SOUKoL4+q4nb85Iahd40F5AwSHkD1LfbkfvYY0OjB1760XKoLyb4iN5WuFxSQ61dMBZtg5O8ynoEMV8xA6MmuFBHl3D7Y9v8dq/X+cB2HN6EH1+XeoRLm6WPt2K/zAaL5o5Dl4/hja7I=
