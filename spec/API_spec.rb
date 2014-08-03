@@ -110,8 +110,8 @@ describe API do
     describe "PUT /passwords" do
         context "The given credentials are correct" do
             it "Updates the password_list to the given." do
-                put "/passwords", "username=user1&password=pa$$word37&password_list=my_new_password_list"
-                last_response.status.should eq 200
+                post "/passwords", "username=user1&password=pa$$word37&password_list=my_new_password_list"
+                last_response.status.should eq 201
                 last_response.body.should eq "Successfully updated"
                 # update happens in database
                 User.where(:username => "user1").first.password_list.should eq("my_new_password_list")
@@ -124,7 +124,7 @@ describe API do
         
         context "The credentials are wrong" do
             it "Returns a 401 error" do
-                put "/passwords", "username=user1&password=wrong_password&password_list=evil_stuff"
+                post "/passwords", "username=user1&password=wrong_password&password_list=evil_stuff"
                 last_response.status.should eq 401
                 last_response.body.should eq "Authentification failed"
                 nothing_changed
@@ -133,7 +133,7 @@ describe API do
         
         context "The user with the given username does not exist" do
             it "Returns a 403 error" do
-                put "/passwords", "username=not_existing&password=abcd&password_list=blabla"
+                post "/passwords", "username=not_existing&password=abcd&password_list=blabla"
                 last_response.status.should eq 403
                 last_response.body.should eq "User not found"
                 nothing_changed
@@ -142,7 +142,7 @@ describe API do
         
         context "the password is missing" do
             it "returns a 400 error" do
-                put "passwords", ""
+                post "passwords", ""
                 last_response.status.should eq 400
                 last_response.body.should eq "username is missing, password is missing, password_list is missing"
                 nothing_changed

@@ -32,7 +32,7 @@ class API < Grape::API
          requires :password_list, :type => String
       end
       
-      put do
+      post do
          authentificate!
          user = get_user!(params[:username])
          user.update_attributes :password_list => params[:password_list]
