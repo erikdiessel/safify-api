@@ -32,6 +32,7 @@ class API < Grape::API
          requires :password_list, :type => String
       end
       
+      # use POST instead of PUT to prevent a preflight-CORS request
       post do
          authentificate!
          user = get_user!(params[:username])
