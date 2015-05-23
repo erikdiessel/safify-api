@@ -12,6 +12,7 @@ class API < Grape::API
     
    before do
       header "Access-Control-Allow-Origin", "*"
+      header "Content-Type", "text/plain"
    end
    
    params do
