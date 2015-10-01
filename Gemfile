@@ -5,7 +5,7 @@ gem 'thin'
 
 gem 'grape'
 
-gem 'mongoid', '>=3.1'
+gem 'mongoid', '>=5'
 
 gem 'rake'
 

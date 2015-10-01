@@ -1,17 +1,17 @@
 production:
-  sessions:
+  clients:
     default:    
       uri: <%= ENV['MONGODB_URI'] %>
      
 test:
-  sessions:
+  clients:
     default:
       database: safify
       hosts:
         - localhost:27017
             
 development:
-  sessions:
+  clients:
     default:
       database: safify
       hosts:
