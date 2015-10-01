@@ -8,3 +8,4 @@ Safify-API
 [![Coverage Status](https://coveralls.io/repos/erikdiessel/safify-api/badge.png?branch=master)](https://coveralls.io/r/erikdiessel/safify-api?branch=master)
 
 The API for the password manager Safify.
+Now using MongoDB 3.
